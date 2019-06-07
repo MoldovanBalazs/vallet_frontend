@@ -1,0 +1,42 @@
+
+<div class="container-fluid">
+  <!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+      <img src="../../assets/vallet.svg" height="800" width="700"/>
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="align-self: center;">
+      <div class='content'>
+        <h1>Login</h1>
+        <form #loginForm="ngForm" (submit)="onLogin($event)">
+          <div class="form-group" style="margin: 4%;">
+            <input placeholder="username" type="text" class="form-control" id="username" required name="username"
+                   [(ngModel)]="user.username" #username="ngModel">
+            <div [hidden]="username.valid || username.untouched" style="font-weight: bold; font-size: 80%"
+                 class="alert alert-danger">
+              username can't be empty
+            </div>
+          </div>
+
+          <div class="form-group" style="margin: 4%;">
+            <input placeholder="password" type="password" class="form-control" id="password" required name="password"
+                   [(ngModel)]="user.password" #password="ngModel">
+            <div [hidden]="password.valid || password.untouched" style="font-weight: bold; font-size: 80%;"
+                 class="alert alert-danger">
+              password can't be empty
+            </div>
+          </div>
+
+          <button id='ok' [disabled]="!loginForm.form.valid" type="submit" class="btn btn-success"
+                  style="font-weight: bold">Login
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
